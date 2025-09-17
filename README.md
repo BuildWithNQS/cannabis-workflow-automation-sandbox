@@ -1,5 +1,10 @@
 # Cannabis Workflow Automation Sandbox
 
+![Python](https://img.shields.io/badge/python-3.9%2B-blue)
+![License](https://img.shields.io/badge/license-MIT-green)
+![Status](https://img.shields.io/badge/status-experimental-orange)
+
+
 This repository demonstrates an **end-to-end workflow automation** for cannabis operations.  
 The workflow integrates:
 
@@ -63,34 +68,36 @@ flowchart LR
 ---
 
 ## Repository Structure
+/src  
+  hubspot_demo.py        # Pull HubSpot deals/contacts
+  
+  quickbooks_demo.py     # Create invoice (sandbox or mock)  
+  
+  onedrive_demo.py       # Upload invoice file  
+  
+  metrc_demo.py          # Compliance update (mock or sandbox) 
+  
+  workflow_pipeline.py   # Master script chaining the full workflow
 
-/src
-hubspot_demo.py # Pull HubSpot deals/contacts
-
-quickbooks_demo.py # Create invoice (sandbox or mock)
-
-onedrive_demo.py # Upload invoice file
-
-metrc_demo.py # Compliance update (mock or sandbox)
-
-workflow_pipeline.py # Master script chaining the full workflow
 
 
-## Features Master Workflow (workflow_pipeline.py)
+
+## Features: Master Workflow (`workflow_pipeline.py`)
 
 The `workflow_pipeline.py` script ties everything together:
+1. Pulls a new sales order from **HubSpot**
+2. Creates an invoice in **QuickBooks**
+3. Uploads the invoice PDF to **OneDrive**
+4. Records a compliance update in **Metrc**
 
-1. Fetches a new sales order from **HubSpot**
-2. Generates an invoice in **QuickBooks**
-3. Uploads the invoice file to **OneDrive**
-4. Logs a compliance update in **Metrc**
-
-When run, the pipeline prints status messages like:
+Example console output:
 HubSpot order pulled
 Invoice created in QuickBooks
 File stored in OneDrive
 Compliance update sent to Metrc
 
-This demonstrates how cannabis operations can achieve a **single automated flow** 
-from Sales → Finance → Storage → Compliance with minimal manual effort.
+
+This demonstrates how cannabis operations can achieve a  
+**single automated flow** from Sales → Finance → Storage → Compliance  
+with minimal manual effort.
 
