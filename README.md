@@ -18,7 +18,47 @@ using **Python, APIs, and automation tools (Zapier/n8n).**
 3. Invoice PDF stored in **OneDrive**
 4. Compliance update logged in **Metrc**
 
-![Workflow Diagram](docs/workflow.png)
+## Workflow Diagram
+
+flowchart LR
+  %% Cannabis workflow automation: Sales -> Finance -> Storage -> Compliance
+  subgraph Sales
+    A[HubSpot<br/>New Deal / Closed-Won]
+  end
+
+  A --> B[Zapier / n8n Trigger<br/>Webhook listens for event]
+  B --> C[Transform & Validate Payload<br/>(map fields, sanitize, check req'd data)]
+
+  subgraph Finance
+    D[QuickBooks API<br/>Create Customer & Invoice]
+    E[Generate Invoice PDF]
+  end
+
+  C --> D
+  D --> E
+
+  subgraph Storage
+    F[OneDrive / Graph API<br/>Upload PDF to /Invoices/YYYY-MM/]
+  end
+
+  E --> F
+
+  subgraph Compliance
+    G[Metrc API<br/>Record Sales / Adjust Inventory]
+  end
+
+  C --> G
+
+  %% Observability / Ops
+  B --> H{Any Errors?}
+  H -- Yes --> I[Log error & context<br/>/outputs/logs.json]
+  I --> J[Alert: Email/Slack]
+  H -- No --> K[Write success audit log<br/>/outputs/run_log.csv]
+  K --> L[Dashboard status: OK]
+
+  %% Optional data store for analytics
+  K -. optional .-> M[(SQLite / Sheet)<br/>Metrics & KPIs]
+
 
 ---
 
