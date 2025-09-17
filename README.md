@@ -19,7 +19,7 @@ using **Python, APIs, and automation tools (Zapier/n8n).**
 4. Compliance update logged in **Metrc**
 
 ## Workflow Diagram
-
+The diagram below shows the end-to-end automation workflow for cannabis operations, connecting Sales → Finance → Storage → Compliance with observability and optional analytics.
 ```mermaid
 flowchart LR
   %% Cannabis workflow automation: Sales -> Finance -> Storage -> Compliance
@@ -63,12 +63,18 @@ flowchart LR
 ---
 
 ## Repository Structure
+
 /src
-   hubspot_demo.py      # Pull HubSpot deals/contacts
-   quickbooks_demo.py   # Create invoice (sandbox or mock)
-   onedrive_demo.py     # Upload invoice file
-   metrc_demo.py        # Compliance update (mock or sandbox)
-   workflow_pipeline.py # Master script chaining the full workflow
+hubspot_demo.py # Pull HubSpot deals/contacts
+
+quickbooks_demo.py # Create invoice (sandbox or mock)
+
+onedrive_demo.py # Upload invoice file
+
+metrc_demo.py # Compliance update (mock or sandbox)
+
+workflow_pipeline.py # Master script chaining the full workflow
+
 
 ## Features Master Workflow (workflow_pipeline.py)
 
