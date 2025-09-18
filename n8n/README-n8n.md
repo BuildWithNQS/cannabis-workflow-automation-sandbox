@@ -14,10 +14,13 @@ This folder contains **n8n workflow examples** for cannabis operations automatio
 - `full_pipeline.json` → Example workflow chaining Sales → Finance → Storage → Compliance.
 
 ## Usage
-1. Open [n8n.io](https://n8n.io/) (self-hosted or cloud).
-2. Import the `.json` workflow file from this folder.
-3. Update credentials (HubSpot, QuickBooks, OneDrive, Metrc).
-4. Run workflow and monitor execution in n8n dashboard.
+This folder is a placeholder for **n8n workflow examples**.  
+
+- In a real setup, `.json` files exported from n8n would live here.  
+- Each file would represent an automation flow (e.g., HubSpot → QuickBooks, or full Sales → Finance → Storage → Compliance).  
+- These can be imported into [n8n.io](https://n8n.io) (self-hosted or cloud), updated with client credentials, and run from the n8n dashboard.  
+
+Note: Prototype JSON exports are not yet included  this is part of the MVP build.
 
 ---
 
